@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Amazing Calculator</title>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    
+    .calculator {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 2px solid #000000;
+      border-radius: 5px;
+      background-color: #000000;
+      color: #FFFFFF;
+    }
+    
+    .calculator input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 5px;
+      font-size: 16px;
+      background-color: #FFFFFF;
+      color: #000000;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    
+    .calculator button:hover {
+      background-color: #E0E0E0;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" readonly>
+    <table>
+      <tr>
+        <td><button onclick="addToResult('7')">7</button></td>
+        <td><button onclick="addToResult('8')">8</button></td>
+        <td><button onclick="addToResult('9')">9</button></td>
+        <td><button onclick="addToResult('/')">/</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="addToResult('4')">4</button></td>
+        <td><button onclick="addToResult('5')">5</button></td>
+        <td><button onclick="addToResult('6')">6</button></td>
+        <td><button onclick="addToResult('*')">*</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="addToResult('1')">1</button></td>
+        <td><button onclick="addToResult('2')">2</button></td>
+        <td><button onclick="addToResult('3')">3</button></td>
+        <td><button onclick="addToResult('-')">-</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="addToResult('0')">0</button></td>
+        <td><button onclick="addToResult('.')">.</button></td>
+        <td><button onclick="clearResult()">C</button></td>
+        <td><button onclick="addToResult('+')">+</button></td>
+      </tr>
+      <tr>
+        <td colspan="4"><button onclick="calculate()">=</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    function addToResult(value) {
+      document.getElementById("result").value += value;
+    }
+    
+    function clearResult() {
+      document.getElementById("result").value = "";
+    }
+    
+    function calculate() {
+      try {
+        let result = eval(document.getElementById("result").value);
+        document.getElementById("result").value = result;
+      } catch (error) {
+        document.getElementById("result").value = "Error";
+      }
+    }
+  </script>
+</body>
+</html>
